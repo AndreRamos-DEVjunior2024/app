@@ -30,8 +30,27 @@ Constantes
 
 Strings (textos): Podem ser escritos entre " ", ' ', ´ ´
 Number: 2 , 3 , 4 e tb 1.4 , 8.4
-Function
+Boolean : true ou false
 
 ## Operadores :
 
-Opreradores de atribuição de valor
+Opreradores de atribuição de valor: '='
+Operador de concatenação : '+'
+
+## Estruturas de dados:
+
+## Arrays:
+
+Uma lista que contém qualquer tipo de dado
+
+## Objetos:
+
+Atributos e métodos
+Criação e manipulação de objetos
+Acesso a propriedades de objetos
+
+## Functions
+
+Criar, passar argumento
+executar
+arrow function / named function

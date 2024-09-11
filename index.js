@@ -1,10 +1,16 @@
-// hello world
+let meta = {
+    value: 'Ler um livro por mês',
+    checked:false,
+}
 
-let mensagem = "olá, mundo!"
-const msg = "Olá André"
- {
-    const msg = "Bora Codar"
-    console.log (msg);
- }
-console.log (mensagem);
-console.log (msg);
+let metas = [
+    meta,
+    {
+        value: "Caminhar 20 minutos todos os dias",
+        checked:false
+    }
+]
+
+console.log (metas[0].value)
+
+
