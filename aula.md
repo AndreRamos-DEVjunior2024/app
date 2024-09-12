@@ -54,3 +54,11 @@ Acesso a propriedades de objetos
 Criar, passar argumento
 executar
 arrow function / named function
+
+## Estrutura de repetição
+
+While
+
+## Condicionais
+
+switch
