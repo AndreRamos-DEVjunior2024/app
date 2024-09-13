@@ -70,7 +70,14 @@ if/else
 ## Módulos em Node.js:
 
 Importação de módulos (require , CommonJS)
-Biblioteca 'inquired' para criar prompts interativos 
+Biblioteca 'inquired' para criar prompts interativos
+FS (file System)
+
+## JSON
+
+JavaScript Object Notation(.json)
+JSON.parse():transforma de JSON para JS
+JSON.stringify(): transforma de JS para JSON
 
 ## Programação assíncrona e Promises:
 

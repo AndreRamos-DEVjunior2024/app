@@ -1,12 +1,23 @@
 const {select, input, checkbox} = require('@inquirer/prompts')
+const fs = require("fs").promises
 
 let mensagem = "Bem Vindo ao app de Metas";
-let meta = {
-    value:"Tomar 3L de água por dia",
-    checked:false
+
+let metas
+
+const carregarMetas = async () => {
+    try {
+        const dados = await fs.readFile("metas.json","utf-8")
+        metas = JSON.parse(dados)
+    }
+    catch(erro){
+        metas = []
+    }
 }
 
-let metas = [meta]
+const salvarMetas = async () => {
+    await fs.writeFile("metas.json" ,JSON.stringify(metas,null, 2))
+}
 
 const cadastrarMeta = async () => {
     const meta = await input ({message:"Digite sua meta:"})
@@ -24,6 +35,10 @@ const cadastrarMeta = async () => {
 }
 
 const listarMetas = async () => {
+    if(metas.length == 0){
+        mensagem = "Não existem metas!"
+        return
+    }
     const respostas = await checkbox ({
         message:"Use as setas para mudar de meta, o espaço para marcar ou desmarcar e o Enter para finalizar essas etapa.",
         choices:[...metas],
@@ -34,7 +49,7 @@ const listarMetas = async () => {
         m.checked = false
     })
 
-    if (respostas == 0){
+    if (respostas.length == 0){
         mensagem = "Nenhuma meta selecionada!"
         return
     }
@@ -85,6 +100,11 @@ const metasAbertas = async () => {
 }
 
 const deletarMetas = async () => {
+    if(metas.length == 0){
+        mensagem = "Não existem metas a deletar!"
+        return
+    }
+
     const metasDesmarcadas = metas.map((meta) => {
         return { value: meta.value, checked:false }
     })
@@ -120,10 +140,13 @@ const mostarMensagem = () =>{
     }
 }
 const start = async( ) => {
-    
+
+    await carregarMetas()
+
     while (true){
 
         mostarMensagem()
+        await salvarMetas()
 
         const opcao = await select({
             message:"Menu >",
